@@ -31,5 +31,16 @@ public class ErrorHandlerController {
 		//Return a generic view if all the fields are the same
 		//return "error/generic";
 	}
+	
+	@ExceptionHandler(com.learning.springboot.error.app.errors.UserNotFoundException.class)
+	public String UserNotFoundException(com.learning.springboot.error.app.errors.UserNotFoundException ex, Model model) {
+		model.addAttribute("error","Erro: El usuario no fue encontrado");
+		model.addAttribute("message", ex.getMessage());
+		model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
+		model.addAttribute("timestamp",new Date());
+		//return "error/numberFormat";
+		//Return a generic view if all the fields are the same
+		return "error/generic";
+	}
 
 }
