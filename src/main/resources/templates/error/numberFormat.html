@@ -2,14 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>E:404</title>
+<title th:text="${error}"></title>
 </head>
 <body>
-	<h1>There was an error WoPs! - Not Found</h1>
-	<div th:text="${error}"></div>
+	<h3 th:text="${error}"></h3>
+	<div th:text="${message}"></div>
 	<div th:text="${status}"></div>
 	<div th:text="${timestamp}"></div>
-	<hr />
-	<div th:text="${path}"></div>
 </body>
 </html>
